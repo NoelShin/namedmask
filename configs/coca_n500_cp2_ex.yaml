@@ -1,0 +1,58 @@
+# base directories
+category_to_p_images_fp: "/home/cs-shin1/datasets/ImageNet2012/coca_category_to_p_images_n500.json"
+dir_ckpt: "/home/cs-shin1/namedmask/ckpt"
+dir_train_dataset: "/home/cs-shin1/datasets/ImageNet2012"
+dir_val_dataset: "/home/cs-shin1/datasets/coca"
+
+# augmentations
+max_n_masks: 2
+scale_range: [ 0.1, 1.0 ]
+
+use_expert_pseudo_masks: true
+category_agnostic: false
+
+n_categories: 81
+categories: [
+    'Accordion', 'UAV', 'Yellow duck', 'alarm clock', 'avocado', 'backpack', 'baseball', 'beer bottle', 'belt',
+    'binoculars', 'boots', 'butterfly', 'calculator', 'camel', 'camera', 'candle', 'chopsticks', 'clover', 'dice',
+    'dolphin', 'doughnut', 'dumbbell', 'eggplant', 'faucet', 'fishing rod', 'frisbee', 'gift box', 'glasses', 'globe',
+    'glove', 'guitar', 'hammer', 'hammock', 'handbag', 'harp', 'hat', 'headphone', 'helicopter', 'high heels',
+    'hourglass', 'ice cream', 'key', 'lollipop', 'macaroon', 'microphone', 'minions', 'moon', 'persimmon', 'pigeon',
+    'pillow', 'pine cone', 'pineapple', 'pocket watch', 'poker', 'potato', 'pumpkin', 'rabbit', 'rocking horse',
+    'roller-skating', 'rolling pin', 'soap bubble', 'squirrel', 'stethoscope', 'sticky note', 'stool', 'strawberry',
+    'sunflower', 'tablet', 'teddy bear', 'thermometer', 'tomato', 'towel', 'toy car', 'typewriter', 'violin', 'waffles',
+    'watering can', 'watermelon', 'wheelchair', 'whisk'
+]
+
+n_images: 500
+
+# dataset
+dataset_name: "coca"
+split: "val"
+train_image_size: 384
+
+# dataloader:
+train_dataloader_kwargs:
+  batch_size: 16
+  num_workers: 16
+  pin_memory: true
+  shuffle: true
+
+val_dataloader_kwargs:
+  batch_size: 1
+  num_workers: 4
+  pin_memory: true
+
+# Segmenter configuration
+# ["deeplabv3plus_resnet101", "deeplabv3plus_resnet50", "deeplabv3plus_mobilenet"]
+segmenter_name: "deeplabv3plus_resnet50"
+
+# optimiser
+lr: 0.0005
+momentum: 0.9
+weight_decay: 0.0002
+betas: [0.9, 0.999]
+n_iters: 20000
+
+iter_eval: 1000
+iter_log: 100

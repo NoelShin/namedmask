@@ -1,0 +1,3 @@
+from datasets.imagenet import ImageNet1KDataset
+from datasets.voc2012 import VOC2012Dataset
+from datasets.voc2012_category import VOC2012CategoryDataset

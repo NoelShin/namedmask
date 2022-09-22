@@ -1,0 +1,49 @@
+# base directories
+category_to_p_images_fp: "/home/cs-shin1/datasets/ImageNet2012/voc2012_category_to_p_images_n500.json"
+dir_ckpt: "/home/cs-shin1/namedmask/ckpt"
+dir_train_dataset: "/home/cs-shin1/datasets/ImageNet2012"
+dir_val_dataset: "/home/cs-shin1/datasets/VOCdevkit/VOC2012"
+
+# augmentations
+max_n_masks: 1
+scale_range: [ 0.1, 1.0 ]
+
+use_expert_pseudo_masks: false
+category_agnostic: false  # no-op in this case
+
+n_categories: 2
+categories: null
+n_images: 500
+
+# dataset
+dataset_name: "voc2012_category"
+split: "train"
+train_image_size: 384
+
+# dataloader:
+train_dataloader_kwargs:
+  batch_size: 8
+  num_workers: 16
+  pin_memory: true
+  shuffle: true
+#  drop_last: true  # this is to prevent an error from a batch norm during training, i.e., ValueError: Expected more than 1 value per channel when training, got input size torch.Size([1, 256, 1, 1])
+
+val_dataloader_kwargs:
+  batch_size: 1
+  num_workers: 4
+  pin_memory: true
+
+# Segmenter configuration
+# ["deeplabv3plus_resnet101", "deeplabv3plus_resnet50", "deeplabv3plus_mobilenet"]
+segmenter_name: "deeplabv3plus_resnet50"
+
+# optimiser
+lr: 0.0005
+momentum: 0.9
+weight_decay: 0.0002
+betas: [0.9, 0.999]
+n_iters: 5000  # a very light schedule
+
+iter_eval: 1000
+iter_log: 100
+iter_curriculum: null
