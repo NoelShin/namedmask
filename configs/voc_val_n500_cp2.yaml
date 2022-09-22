@@ -1,0 +1,50 @@
+# base directories
+category_to_p_images_fp: "/home/cs-shin1/datasets/ImageNet2012/voc2012_category_to_p_images_n500.json"
+dir_ckpt: "/home/cs-shin1/namedmask/ckpt"
+dir_train_dataset: "/home/cs-shin1/datasets/ImageNet2012"
+dir_val_dataset: "/home/cs-shin1/datasets/VOCdevkit/VOC2012"
+
+# augmentations
+max_n_masks: 2
+scale_range: [ 0.1, 1.0 ]
+
+use_expert_pseudo_masks: false
+category_agnostic: false
+
+n_categories: 21
+categories: [
+    "aeroplane", "bicycle", "bird", "boat", "bottle", "bus", "car", "cat", "chair", "cow", "dining table",
+    "dog", "horse", "motorbike", "person", "potted plant", "sheep", "sofa", "train", "tv/monitor"
+]
+n_images: 500
+
+# dataset
+dataset_name: "voc2012"
+split: "val"
+train_image_size: 384
+
+# dataloader:
+train_dataloader_kwargs:
+  batch_size: 16
+  num_workers: 16
+  pin_memory: true
+  shuffle: true
+
+val_dataloader_kwargs:
+  batch_size: 1
+  num_workers: 4
+  pin_memory: true
+
+# Segmenter configuration
+# ["deeplabv3plus_resnet101", "deeplabv3plus_resnet50", "deeplabv3plus_mobilenet"]
+segmenter_name: "deeplabv3plus_resnet50"
+
+# optimiser
+lr: 0.0005
+momentum: 0.9
+weight_decay: 0.0002
+betas: [0.9, 0.999]
+n_iters: 20000
+
+iter_eval: 1000
+iter_log: 100
