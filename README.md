@@ -1,15 +1,19 @@
 ## NamedMask: Distilling Segmenters from Complementary Foundation Models
 Official PyTorch implementation for NamedMask. Details can be found in the paper.
-[[Paper]](https://arxiv.org/pdf/2209.11228.pdf) [[Project page]](https://www.robots.ox.ac.uk/~vgg/research/namedmask)
+[[Paper]](https://arxiv.org/pdf/2206.07045.pdf) [[Project page]](https://www.robots.ox.ac.uk/~vgg/research/namedmask)
 
 ![Alt Text](project_page/images/out_no_loop.gif)
 
 ### Contents
+* [Demo](#demo)
 * [Preparation](#preparation)
 * [NamedMask training/inference](#namedmask-training/inference)
 * [Pre-trained weights](#pre-trained-weights)
 * [Citation](#citation)
 * [Acknowledgements](#acknowledgements)
+
+### Demo
+Please find [our demo](https://huggingface.co/spaces/aifactory/namedmask) built with Hugging Face and Gradio.
 
 ### Preparation
 #### 1. Download datasets
@@ -17,11 +21,11 @@ Please download datasets of interest first by visiting the following links:
 * [Cityscapes](https://www.cityscapes-dataset.com/login)
 * [CoCA](http://zhaozhang.net/coca.html)
 * [COCO2017](https://cocodataset.org/#download)
-* [VOC2012](https://github.com/mhamilton723/STEGO#install) 
+* [VOC2012](https://github.com/mhamilton723/STEGO#install)
 * [(Optional) ImageNet2012](https://image-net.org/download.php) (for an index dataset used in training)
 
 It is worth noting that Cityscapes and ImageNet2012 require you to sign up an account.
-In addition, you need to download ImageNet2012 if you want to train NamedMask yourself. 
+In addition, you need to download ImageNet2012 if you want to train NamedMask yourself.
 
 We advise you to put the downloaded dataset(s) into the following directory structure for ease of implementation:
 ```bash
@@ -54,7 +58,7 @@ conda install -c conda-forge tqdm
 conda install -c conda-forge matplotlib
 conda install -c anaconda ujson
 conda install -c conda-forge pyyaml
-conda install -c conda-forge pycocotools 
+conda install -c conda-forge pycocotools
 conda install -c anaconda scipy
 pip install opencv-python
 pip install git+https://github.com/openai/CLIP.git
@@ -84,8 +88,8 @@ Please download a dictionary file for a benchmark on which you want to evaluate 
 * [COCO2017](https://www.robots.ox.ac.uk/~vgg/research/namedmask/shared_files/coco2017/coco2017_category_to_p_images_n500.json)
 * [VOC2012](https://www.robots.ox.ac.uk/~vgg/research/namedmask/shared_files/voc2012/voc2012_category_to_p_images_n500.json)
 
-Then, open 
-`selfmask.sh` in `scripts` directory and change 
+Then, open
+`selfmask.sh` in `scripts` directory and change
 ```shell
 DIR_ROOT={your_working_directory}
 DIR_DATASET={your_ImageNet2012_directory}
@@ -102,12 +106,12 @@ The pseudo-masks will be saved at `{your_ImageNet2012_directory}/train_pseudo_ma
 If you want to skip this process, please download the pre-computed pseudo-masks and uncompress it in `{your_ImageNet2012_directory}/train_pseudo_masks_selfmask`:
 * [pseudo-masks from SelfMask](https://www.robots.ox.ac.uk/~vgg/research/namedmask/shared_files/imagenet2012/selfmask.zip) (~89 MB)
 
-Optionally, if you want to refine pseudo-masks with a category expert (after finishing the above step), check out 
+Optionally, if you want to refine pseudo-masks with a category expert (after finishing the above step), check out
 `expert_$DATASET_NAME_category.sh` file and configure `DIR_ROOT`, `CATEGORY_TO_P_IMAGES_FP` and `CATEGORY_TO_P_IMAGES_FP` as appropriate. Then,
 ```shell
 bash expert_$DATASET_NAME_category.sh
 ```
-Currently, we only provide code for training experts of the VOC2012 categories. 
+Currently, we only provide code for training experts of the VOC2012 categories.
 The pseudo-masks will be saved at `{your_ImageNet2012_directory}/train_pseudo_masks_experts`.
 
 If you want to skip this process, please download the pre-computed pseudo-masks:
