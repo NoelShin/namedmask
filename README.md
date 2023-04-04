@@ -192,11 +192,11 @@ tv/monitor|[weights](https://www.robots.ox.ac.uk/~vgg/research/namedmask/shared_
 
 ### Citation
 ```
-@article{shin2022namedmask,
-  author = {Shin, Gyungin and Xie, Weidi and Albanie, Samuel},
+@inproceedings{shin2023namedmask,
   title = {NamedMask: Distilling Segmenters from Complementary Foundation Models},
-  journal = {arXiv:2209.11228},
-  year = {2022}
+  author = {Shin, Gyungin and Xie, Weidi and Albanie, Samuel},
+  booktitle = {CVPRW},
+  year = {2023}
 }
 ```
 
