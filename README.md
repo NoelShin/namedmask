@@ -1,6 +1,6 @@
 ## NamedMask: Distilling Segmenters from Complementary Foundation Models
 Official PyTorch implementation for NamedMask. Details can be found in the paper.
-[[Paper]](https://arxiv.org/pdf/2206.07045.pdf) [[Project page]](https://www.robots.ox.ac.uk/~vgg/research/namedmask)
+[[Paper]](https://arxiv.org/pdf/2209.11228.pdf) [[Project page]](https://www.robots.ox.ac.uk/~vgg/research/namedmask)
 
 ![Alt Text](project_page/images/out_no_loop.gif)
 
@@ -192,11 +192,11 @@ tv/monitor|[weights](https://www.robots.ox.ac.uk/~vgg/research/namedmask/shared_
 
 ### Citation
 ```
-@article{shin2022namedmask,
-  author = {Shin, Gyungin and Xie, Weidi and Albanie, Samuel},
+@inproceedings{shin2023namedmask,
   title = {NamedMask: Distilling Segmenters from Complementary Foundation Models},
-  journal = {arXiv:},
-  year = {2022}
+  author = {Shin, Gyungin and Xie, Weidi and Albanie, Samuel},
+  booktitle = {CVPRW},
+  year = {2023}
 }
 ```
 
