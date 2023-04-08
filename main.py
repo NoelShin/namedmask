@@ -93,6 +93,9 @@ if __name__ == '__main__':
     # instantiate a segmentation network
     network = get_network(network_name=args.segmenter_name, n_categories=n_categories).to(device)
 
+    n_params = sum(param.numel() for param in network.parameters())
+    print(f"# visual encoder params: {n_params}")
+
     # instantiate a loss function
     criterion = CrossEntropyLoss(ignore_index=ignore_index)
 

@@ -209,7 +209,7 @@ class Trainer:
 
             # compute metrics
             dt_argmax: np.ndarray = torch.argmax(dt, dim=1).cpu().numpy()  # 1 x H x W, {0, 1}
-
+            
             if binary:
                 current_iou = compute_iou(pred_mask=dt_argmax.squeeze(axis=0), gt_mask=gt.squeeze(dim=0).cpu().numpy())
                 metric_meter.update(current_iou, n=1)
